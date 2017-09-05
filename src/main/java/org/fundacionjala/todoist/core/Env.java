@@ -80,7 +80,7 @@ public final class Env {
     }
 
     /**
-     * Gets the Base Url of Sales Force.
+     * Gets the Base Url.
      *
      * @return String.
      */
@@ -89,7 +89,7 @@ public final class Env {
     }
 
     /**
-     * Gets the Login Url of Sales Force.
+     * Gets the Login Url.
      *
      * @return String.
      */

@@ -5,5 +5,5 @@ package org.fundacionjala.todoist.core.driver;
  */
 public enum DriverType {
     CHROME,
-    FIREFOX,
+    FIREFOX
 }
