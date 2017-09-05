@@ -67,7 +67,7 @@ public final class Env {
      * @return String.
      */
     public String getUsername() {
-        return getEnv("username");
+        return getEnv("email");
     }
 
     /**
