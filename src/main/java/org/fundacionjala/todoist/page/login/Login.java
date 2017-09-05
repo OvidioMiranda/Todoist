@@ -21,7 +21,7 @@ public class Login extends BasePage {
     private static final Logger LOGGER = LogManager.getLogger();
 
     //All WebElements are identified by @FindBy annotation.
-    @FindBy(css = "a.sel_login")
+    @FindBy(xpath = "//ul[@id='top_menu']/descendant::a[contains(@class,'sel_login')]")
     private WebElement loginInButton;
 
     @FindBy(id = "email")
@@ -30,8 +30,11 @@ public class Login extends BasePage {
     @FindBy(id = "password")
     private WebElement passwordInputField;
 
-    @FindBy(className = "submit_btn.amibutton.amibutton_red.sel_login")
+    @FindBy(css = ".submit_btn.amibutton.amibutton_red.sel_login")
     private WebElement loginInFormButton;
+
+    String loginIframe = "GB_frame";
+
 
     /**
      * Constructor for Default.
@@ -89,11 +92,19 @@ public class Login extends BasePage {
      * @return Home page after login to application.
      */
     public Home loginAs(String email, String password) {
-        //loginInButton.click();
         clickLoginOptionButton();
-        driver.switchTo().frame("GB_frame").switchTo().frame("GB_frame");
+        driver.switchTo().frame(loginIframe).switchTo().frame(loginIframe);
         setEmail(email).setPassword(password).clickLoginForm();
         return new Home();
+    }
+
+    /**
+     * This method verify is the user is logged.
+     *
+     * @return True if the user is logged.
+     */
+    public boolean isUserLogged() {
+        return getCurrentUrl().contains("https://en.todoist.com/app");
     }
 }
 
